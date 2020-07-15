@@ -2,6 +2,7 @@ package Christian.A2;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class PhoneBook {
     public static void main(String[] args) {
@@ -17,23 +18,28 @@ public class PhoneBook {
             System.out.printf("%-25s %15s", i, phoneBook.get(i) + "\n");
         }
 
-        System.out.println("\nName search:");
 
-        String searchName = "Christian Sander";
+        Scanner sc1 = new Scanner(System.in);
+        System.out.print("\n\nEnter Name to SEARCH: ");
+        String searchName = sc1.next();
+
         for (String i : phoneBook.keySet()) {
-            if (i.equals(searchName)) {
-                System.out.printf("%-24s %15s", searchName, phoneBook.get(i));
-
+            if (i == searchName){
+                System.out.printf("%-18s" , searchName);
             }
 
         }
-        Iterator<String> iterator = phoneBook.keySet().iterator();
 
-        String deleteName = "Sebastian Wels";
+
+        Scanner sc2 = new Scanner(System.in);
+        System.out.print("\n\nEnter Name to DELETE: ");
+        String deleteName = sc2.next();
+
+        Iterator<String> iterator = phoneBook.keySet().iterator();
         while (iterator.hasNext()) {
             String nextIterator = iterator.next();
             if (nextIterator.contains(deleteName)) {
-                System.out.print("\n\nRemove:\n"+nextIterator+nextIterator);
+                System.out.print("\nRemoved:\n"+nextIterator);
                 iterator.remove();
             }
 
