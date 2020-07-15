@@ -1,4 +1,4 @@
-package Zumrut;
+package Zumrut.A1;
 import java.util.HashMap;
 
 
